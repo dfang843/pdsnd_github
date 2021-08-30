@@ -152,6 +152,7 @@ def user_stats2(df):
     
 def main():
     while True:
+        # Displaying raw data for the user
         i = 0
         city, month, day = get_filters()
         df = load_data(city, month, day)
@@ -162,18 +163,22 @@ def main():
             print(df[i: i + 5])
             data = input("Do you want to show 5 more rows of raw data?")
             i += 5
+        # Times of Travel Statistics
         time = input("Do you want to learn about the most frequent times of travel based on your filters? Yes or no.")
         while time.lower() not in ['yes', 'no']:
             time = input("That was not valid. Please try again.")
         if time.lower() == "yes": time_stats(df)
+        # Stations Statistics
         station = input("Do you want to learn about the most popular stations based on your filters?")
         while station.lower() not in ['yes', 'no']:
             station = input("That was not valid. Please try again.")
         if station.lower() == "yes": station_stats(df)
+        # Trip Duration Statistics
         trip_duration = input("Do you want to learn about the total and average trip duration based on your filters?")
         while trip_duration.lower() not in ['yes', 'no']:
             trip_duration = input("That was not valid. Please try again.")
         if trip_duration.lower() == "yes": trip_duration_stats(df)
+        #User statistics
         user = input("Do you want to learn about the user statistics based on your filters?")
         while user.lower() not in ['yes', 'no']:
             user = input("That was not valid. Please try again.")
@@ -181,6 +186,7 @@ def main():
             if city == "washington": user_stats2(df)
             else: user_stats1(df)
 
+        #Restart?
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
