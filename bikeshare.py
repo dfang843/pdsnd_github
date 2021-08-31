@@ -18,15 +18,33 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
+<<<<<<< HEAD
     # Get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+||||||| 7f28bff
+    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+=======
+    #Get city data
+>>>>>>> origin/documentation
     city = str(input("Which city do you want to get input from: chicago, new york city, or washington?")).lower()
     while city not in cities:
         city = str(input("Sorry, that city does not exist in this database. Please try again.")).lower()
+<<<<<<< HEAD
     # Get user input for month (all, january, february, ... , june)
+||||||| 7f28bff
+    # TO DO: get user input for month (all, january, february, ... , june)
+=======
+    #Get month data
+>>>>>>> origin/documentation
     month = str(input("Which month do you want to get input from: all, january, february, march, april, may or june?")).lower()
     while month not in months:
         month = str(input("Sorry, that month does not exist. Please try again.")).lower()
+<<<<<<< HEAD
     # Get user input for day of week (all, monday, tuesday, ... sunday)
+||||||| 7f28bff
+    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+=======
+    #Get date data
+>>>>>>> origin/documentation
     day = str(input("Which day do you want to get input from: all, monday, tuesday, wednesday, thursday, friday, saturday, sunday")).lower()
     while day not in dates:
         day = str(input("Sorry, that day does not exist. Please try again.")).lower()
@@ -64,8 +82,16 @@ def time_stats(df):
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
+<<<<<<< HEAD
     global months
     # Display the most common month
+||||||| 7f28bff
+    months = ['january', 'february', 'march', 'april', 'may', 'june']
+    # TO DO: display the most common month
+=======
+    months = ['january', 'february', 'march', 'april', 'may', 'june']
+    # Display the most common month
+>>>>>>> origin/documentation
     print("Most common month: " + months[df['month'].mode()[0] - 1])
     # Display the most common day of week
     print("Most common day of week: " + df['day_of_week'].mode()[0])
@@ -140,7 +166,13 @@ def user_stats2(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
+<<<<<<< HEAD
     #Display counts of user types
+||||||| 7f28bff
+    # TO DO: Display counts of user types
+=======
+    # Display counts of user types
+>>>>>>> origin/documentation
     print("User Type Statistics:")
     print(df['User Type'].value_counts())
     
@@ -153,6 +185,7 @@ def user_stats2(df):
 def main():
     lst = ['yes', 'no']
     while True:
+        # Displaying raw data for the user
         i = 0
         city, month, day = get_filters()
         df = load_data(city, month, day)
@@ -163,18 +196,22 @@ def main():
             print(df[i: i + 5])
             data = input("Do you want to show 5 more rows of raw data?")
             i += 5
+        # Times of Travel Statistics
         time = input("Do you want to learn about the most frequent times of travel based on your filters? Yes or no.")
         while time.lower() not in lst:
             time = input("That was not valid. Please try again.")
         if time.lower() == "yes": time_stats(df)
+        # Stations Statistics
         station = input("Do you want to learn about the most popular stations based on your filters?")
         while station.lower() not in lst:
             station = input("That was not valid. Please try again.")
         if station.lower() == "yes": station_stats(df)
+        # Trip Duration Statistics
         trip_duration = input("Do you want to learn about the total and average trip duration based on your filters?")
         while trip_duration.lower() not in lst:
             trip_duration = input("That was not valid. Please try again.")
         if trip_duration.lower() == "yes": trip_duration_stats(df)
+        #User statistics
         user = input("Do you want to learn about the user statistics based on your filters?")
         while user.lower() not in lst:
             user = input("That was not valid. Please try again.")
@@ -182,6 +219,7 @@ def main():
             if city == "washington": user_stats2(df)
             else: user_stats1(df)
 
+        #Restart?
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':break
 
