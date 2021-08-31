@@ -2,12 +2,27 @@ import time
 import pandas as pd
 import numpy as np
 
+<<<<<<< HEAD
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 cities = ['chicago', 'new york city', 'washington']
 months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
 dates = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+||||||| 7f28bff
+CITY_DATA = { 'chicago': 'chicago.csv',
+              'new york city': 'new_york_city.csv',
+              'washington': 'washington.csv' }
+
+=======
+CITY_DATA = {'chicago': 'chicago.csv',
+             'new york city': 'new_york_city.csv',
+             'washington': 'washington.csv'}
+cities = ['chicago', 'new york city', 'washington']
+months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
+dates = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
+>>>>>>> refactoring
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -19,15 +34,22 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
 <<<<<<< HEAD
+<<<<<<< HEAD
     # Get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 ||||||| 7f28bff
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 =======
     #Get city data
 >>>>>>> origin/documentation
+||||||| 7f28bff
+    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+=======
+    # Get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+>>>>>>> refactoring
     city = str(input("Which city do you want to get input from: chicago, new york city, or washington?")).lower()
     while city not in cities:
         city = str(input("Sorry, that city does not exist in this database. Please try again.")).lower()
+<<<<<<< HEAD
 <<<<<<< HEAD
     # Get user input for month (all, january, february, ... , june)
 ||||||| 7f28bff
@@ -37,7 +59,18 @@ def get_filters():
 >>>>>>> origin/documentation
     month = str(input("Which month do you want to get input from: all, january, february, march, april, may or june?")).lower()
     while month not in months:
+||||||| 7f28bff
+    # TO DO: get user input for month (all, january, february, ... , june)
+    month = str(input("Which month do you want to get input from: all, january, february, march, april, may or june?")).lower()
+    while month not in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
+=======
+    # Get user input for month (all, january, february, ... , june)
+    month = str(
+        input("Which month do you want to get input from: all, january, february, march, april, may or june?")).lower()
+    while month not in months:
+>>>>>>> refactoring
         month = str(input("Sorry, that month does not exist. Please try again.")).lower()
+<<<<<<< HEAD
 <<<<<<< HEAD
     # Get user input for day of week (all, monday, tuesday, ... sunday)
 ||||||| 7f28bff
@@ -47,10 +80,19 @@ def get_filters():
 >>>>>>> origin/documentation
     day = str(input("Which day do you want to get input from: all, monday, tuesday, wednesday, thursday, friday, saturday, sunday")).lower()
     while day not in dates:
+||||||| 7f28bff
+    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    day = str(input("Which day do you want to get input from: all, monday, tuesday, wednesday, thursday, friday, saturday, sunday")).lower()
+    while day not in ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']:
+=======
+    # Get user input for day of week (all, monday, tuesday, ... sunday)
+    day = str(input(
+        "Which day do you want to get input from: all, monday, tuesday, wednesday, thursday, friday, saturday, sunday")).lower()
+    while day not in dates:
+>>>>>>> refactoring
         day = str(input("Sorry, that day does not exist. Please try again.")).lower()
-    print('-'*40)
+    print('-' * 40)
     return city, month, day
-
 
 def load_data(city, month, day):
     """
@@ -73,15 +115,15 @@ def load_data(city, month, day):
         df = df[df['month'] == month]
     if day != 'all':
         df = df[df['day_of_week'] == day.title()]
-    
-    return df
 
+    return df
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
+<<<<<<< HEAD
 <<<<<<< HEAD
     global months
     # Display the most common month
@@ -92,6 +134,13 @@ def time_stats(df):
     months = ['january', 'february', 'march', 'april', 'may', 'june']
     # Display the most common month
 >>>>>>> origin/documentation
+||||||| 7f28bff
+    months = ['january', 'february', 'march', 'april', 'may', 'june']
+    # TO DO: display the most common month
+=======
+    global months
+    # Display the most common month
+>>>>>>> refactoring
     print("Most common month: " + months[df['month'].mode()[0] - 1])
     # Display the most common day of week
     print("Most common day of week: " + df['day_of_week'].mode()[0])
@@ -100,8 +149,7 @@ def time_stats(df):
     print('The most common start hour is: {}:00'.format(hour))
     time1 = round(time.time() - start_time, 2)
     print("\nThis took %s seconds." % (time1))
-    print('-'*40)
-
+    print('-' * 40)
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
@@ -116,8 +164,7 @@ def station_stats(df):
     print("Most popular combination of stations: " + (df['Start Station'] + ", " + df['End Station']).mode()[0])
     time1 = round(time.time() - start_time, 2)
     print("\nThis took %s seconds." % (time1))
-    print('-'*40)
-
+    print('-' * 40)
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
@@ -134,8 +181,7 @@ def trip_duration_stats(df):
     time1 = round(time.time() - start_time, 2)
 
     print("\nThis took %s seconds." % (time1))
-    print('-'*40)
-
+    print('-' * 40)
 
 def user_stats1(df):
     """Displays statistics on bikeshare users."""
@@ -151,21 +197,30 @@ def user_stats1(df):
     print("Gender Statistics:")
     print(df['Gender'].value_counts())
 
+<<<<<<< HEAD
     # Display earliest, most recent, and most common year of birth
     print("Earliest Year of Birth: ", end = "")
+||||||| 7f28bff
+    # TO DO: Display earliest, most recent, and most common year of birth
+    print("Earliest Year of Birth: ", end = "")
+=======
+    # Display earliest, most recent, and most common year of birth
+    print("Earliest Year of Birth: ", end="")
+>>>>>>> refactoring
     print(int(df['Birth Year'].min()))
-    print("Latest Year of Birth: ", end = "")
+    print("Latest Year of Birth: ", end="")
     print(int(df['Birth Year'].max()))
     print("Most common year of birth: " + str(int(df['Birth Year'].mode()[0])))
     time1 = round(time.time() - start_time, 2)
 
     print("\nThis took %s seconds." % (time1))
-    print('-'*40)
+    print('-' * 40)
 
 def user_stats2(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     #Display counts of user types
 ||||||| 7f28bff
@@ -173,15 +228,19 @@ def user_stats2(df):
 =======
     # Display counts of user types
 >>>>>>> origin/documentation
+||||||| 7f28bff
+    # TO DO: Display counts of user types
+=======
+    # Display counts of user types
+>>>>>>> refactoring
     print("User Type Statistics:")
     print(df['User Type'].value_counts())
-    
+
     print("Gender and Birth Date data is unavailable at this time, sorry")
     time1 = round(time.time() - start_time, 2)
     print("\nThis took %s seconds." % (time1))
-    print('-'*40)
-    
-    
+    print('-' * 40)
+
 def main():
     lst = ['yes', 'no']
     while True:
@@ -215,14 +274,30 @@ def main():
         user = input("Do you want to learn about the user statistics based on your filters?")
         while user.lower() not in lst:
             user = input("That was not valid. Please try again.")
-        if user.lower() == "yes": 
-            if city == "washington": user_stats2(df)
-            else: user_stats1(df)
+        if user.lower() == "yes":
+            if city == "washington":
+                user_stats2(df)
+            else:
+                user_stats1(df)
 
         #Restart?
         restart = input('\nWould you like to restart? Enter yes or no.\n')
+<<<<<<< HEAD
         if restart.lower() != 'yes':break
 
+||||||| 7f28bff
+        if restart.lower() != 'yes':
+            break
+
+=======
+        if restart.lower() != 'yes': break
+>>>>>>> refactoring
 
 if __name__ == "__main__":
+<<<<<<< HEAD
 	main()
+||||||| 7f28bff
+	main()
+=======
+    main()
+>>>>>>> refactoring
