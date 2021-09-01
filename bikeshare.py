@@ -255,17 +255,17 @@ def main():
             print(df[i: i + 5])
             data = input("Do you want to show 5 more rows of raw data?")
             i += 5
-        # Times of Travel Statistics
+        #Times of Travel Statistics
         time = input("Do you want to learn about the most frequent times of travel based on your filters? Yes or no.")
         while time.lower() not in lst:
             time = input("That was not valid. Please try again.")
         if time.lower() == "yes": time_stats(df)
-        # Stations Statistics
+        #Stations Statistics
         station = input("Do you want to learn about the most popular stations based on your filters?")
         while station.lower() not in lst:
             station = input("That was not valid. Please try again.")
         if station.lower() == "yes": station_stats(df)
-        # Trip Duration Statistics
+        #Trip Duration Statistics
         trip_duration = input("Do you want to learn about the total and average trip duration based on your filters?")
         while trip_duration.lower() not in lst:
             trip_duration = input("That was not valid. Please try again.")
